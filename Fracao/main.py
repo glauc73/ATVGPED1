@@ -18,7 +18,18 @@ def Menu():
                 5 - Comparar
                 0 - Sair
             ''')
-    return int(input())
+    while True:
+        try:
+            op = int(input())
+            if 0 <= op <= 5:
+                break
+            print('informe uma opção válida (numero de 0 a 5)')    
+        except:
+            print('informe uma opção válida (numero de 0 a 5)')    
+    return op
+            
+
+
 
 if __name__ == '__main__':
     while True:

@@ -24,14 +24,13 @@ if __name__ == '__main__':
             
             tela.PassaVez(jogo.jogadores[i])
 
-            print(f"vez de '-----{jogo.jogadores[i].nome}-----'")
-            tela.ExibirStatusMesa(jogo)
+            tela.ExibirStatusMesa(jogo, jogo.jogadores[i])
 
             tela.MostrarMao(jogo.jogadores[i])
             op = tela.Menu()
-            if op == '1':
+            if op == 1:
                 jogo.PegaDoDescarte(jog_i)
-            elif op == '2':
+            elif op == 2:
                 jogo.PegaDoMonte(jog_i)
 
             if(len(jogo.monte.cartas) == 0):
