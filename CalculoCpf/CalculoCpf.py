@@ -17,15 +17,17 @@ class Usuario:
                 return 11 - resto
 
     def cpfAnalise(self):
+        print(f"Olá, {self.nome}!")
         while True:
-            self.cpf = input(f"Olá, {self.nome}!\nDigite o CPF a ser analisado:\n(Apenas os 11 dígitos, sem pontuação)\n")
+            self.cpf = input("Digite o CPF a ser analisado:\n(Apenas os 11 dígitos, sem pontuação)\n")
+            limpatela()
             try:
                 int(self.cpf)
                 if len(self.cpf) != 11:
                     raise TypeError
                 break
             except:
-                print("Erro!!!\nDigite o CPF a ser verificado com apenas onze números e nada mais.")
+                print("Erro!!!\nDigite o CPF a ser verificado com apenas onze números e nada mais.\n")
         
         int_cpf = int(self.cpf)
         lista_cpf = []
@@ -79,11 +81,11 @@ def menu():
         print("Deseja consultar CPF de novo usuário?")
         try:
             op = int(input("1 - Sim\n2 - Não\n"))
+            limpatela()
             match op:
                 case 1:
                     menuUsuario()
                 case 2:
-                    limpatela()
                     print("Até logo!\nFim do programa...")
                     break
                 case _:
@@ -93,7 +95,7 @@ def menu():
 
 def menuUsuario():
     usuario = Usuario(input("Como devemos te chamar? "))
-
+    limpatela()
     usuario.cpfAnalise()
 
 if __name__ == "__main__":
