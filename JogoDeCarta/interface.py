@@ -47,16 +47,27 @@ class Interface: ##classe para administrar informações do jogo na tela
             print('''-----------Escolha uma opção--------------
             1 - Comprar do Descarte
             2 - Comprar do Monte
-            outro valor - Passar vez
             ''')
-            return input()
+            while True:
+                try:
+                    op = int(input())
+                    if 1 == op or op == 2:
+                        return op
+                    print('informe uma opção válida (1 ou 2)')
+                except:
+                    print('informe uma opção válida (1 ou 2)')
+
+
+
+
     
     def PassaVez(self, jog_i): ##essa função serve para avisar de quem é a vez sem mostrar suas cartas
         input(f"vez de '{jog_i.nome}' (pressione enter para ver suas cartas...)")
         self.limpar()
         self.Cabecalho()
 
-    def ExibirStatusMesa(self, jogo):
+    def ExibirStatusMesa(self, jogo, jogador):
+        print(f"vez de '-----{jogador.nome}-----'")
         print(f"topo Descarte: {jogo.descarte.topo()}\n")
 
     def MostrarMao(self, jogador):

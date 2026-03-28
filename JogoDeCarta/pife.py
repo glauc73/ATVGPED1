@@ -46,7 +46,7 @@ class Pife:
         tela.limpar()
         tela.Cabecalho()
         
-        tela.ExibirStatusMesa(self)
+        tela.ExibirStatusMesa(self, self.jogadores[jog_i])
         tela.MostrarMao(self.jogadores[jog_i])
         while True:
             try:
