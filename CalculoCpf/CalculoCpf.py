@@ -51,7 +51,6 @@ class Usuario:
 
         lista_cpf.reverse()
         lista_cpf.append(s_digito)
-        lista_cpf.reverse()
 
         if p_digito == p_digitofornecido and s_digito == s_digitofornecido:
             print("CPF válido.\n")
