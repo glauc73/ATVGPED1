@@ -7,10 +7,8 @@ class Usuario:
 
     def calculaDigito(self, lista_cpf):
             sum = 0
-            print(self.cpf)
             for i in range(len(lista_cpf)):
                 sum += lista_cpf[i] * (2 + i)
-                print(sum)
             resto = sum % 11
             if resto <= 1:
                 return 0
