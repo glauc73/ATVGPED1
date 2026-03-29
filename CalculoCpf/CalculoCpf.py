@@ -5,11 +5,10 @@ class Usuario:
         self.nome = nome
         self.cpf = None
 
-    def calculaDigito(self, dig, lista_cpf):
+    def calculaDigito(self, lista_cpf):
             sum = 0
-            for i in range(9):
-                sum += lista_cpf[i] * (dig + i)
-                # dig é 2 caso seja o primeiros dos dois últimos digitos seja requerido, e 3 caso se queira o segundo.
+            for i in range(len(lista_cpf)):
+                sum += lista_cpf[i] * (2 + i)
             resto = sum % 11
             if resto <= 1:
                 return 0
@@ -42,18 +41,16 @@ class Usuario:
             lista_cpf.append(int_cpf % 10)
             int_cpf = int_cpf // 10
 
-        p_digito = self.calculaDigito(2, lista_cpf)
-        s_digito = self.calculaDigito(3, lista_cpf)
-
+        p_digito = self.calculaDigito(lista_cpf)
         lista_cpf.reverse()
-        
-        limpatela()
+        lista_cpf.append(p_digito)
+    
+        s_digito = self.calculaDigito(lista_cpf)
+        lista_cpf.append(s_digito)
 
         if p_digito == p_digitofornecido and s_digito == s_digitofornecido:
             print("CPF válido.\n")
         else:
-            lista_cpf.append(p_digito)
-            lista_cpf.append(s_digito)
             print("CPF inválido.")
             print(f"CPF válido deveria ser: ", end="")
             for i in range(11):
